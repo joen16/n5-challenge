@@ -1,0 +1,20 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: n5-challenge-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: n5-challenge
+  template:
+    metadata:
+      labels:
+        app: n5-challenge
+    spec:
+      containers:
+      - name: n5-challenge-container
+        image: n5-challenge-image
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
